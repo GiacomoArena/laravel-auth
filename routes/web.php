@@ -20,7 +20,7 @@ Route::get('/', [PageController::class , 'index'])->name('home');
 
 
 Route::middleware(['auth', 'verified'])
-    ->name('admin')
+    ->name('admin.')
     ->prefix('admin')
     ->group(function(){
 
