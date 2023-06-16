@@ -10,6 +10,14 @@ class Portfolio extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'slug',
+        'name',
+        'surname',
+        'description',
+        'image'
+    ];
     public static function generateSlug($str){
 
         $slug = Str::slug($str, '-');

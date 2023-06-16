@@ -11,7 +11,7 @@
                     Portfolios</a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{route('admin.portfolios.create')}}">
                     <i class="fa-solid fa-user-plus"></i>
                     Add Portfolio
                 </a>

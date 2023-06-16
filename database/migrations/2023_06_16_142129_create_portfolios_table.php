@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('slug',50)->unique();
             $table->string('name', 15);
             $table->string('surname', 15);
-            $table->text('description', 15);
-            $table->string('image');
+            $table->text('description');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Portfolio;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\PortfolioRequest;
 
 class PortfolioController extends Controller
 {
@@ -25,7 +26,7 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.portfolio.create');
     }
 
     /**
@@ -34,9 +35,16 @@ class PortfolioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PortfolioRequest $request)
     {
-        //
+        $form_data = $request->all();
+        $form_data['slug'] = Portfolio::generateSlug($form_data['title']);
+
+        $new_portfolio = new Portfolio();
+        $new_portfolio->fill($form_data);
+        $new_portfolio->save();
+
+        return redirect()->route('admin.portfolios.show', $new_portfolio);
     }
 
     /**
