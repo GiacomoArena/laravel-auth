@@ -10,4 +10,17 @@ main{
 aside{
     height: 100%;
     width: 200px;
+    li{
+        list-style: none;
+        margin-bottom: 10px;
+    }
+    a{
+        text-decoration: none;
+        color: rgba(20, 20, 20, 0.973);
+        transition: all 0.5s;
+        &:hover{
+            color: rgba(59, 59, 59, 0.973);
+            text-decoration: underline;
+        }
+    }
 }
