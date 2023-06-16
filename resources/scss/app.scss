@@ -1,1 +1,13 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+main{
+    height: calc(100vh - 70px);
+}
+.my-navbar{
+    height: 70px !important;
+}
+
+aside{
+    height: 100%;
+    width: 200px;
+}
