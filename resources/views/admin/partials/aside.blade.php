@@ -6,7 +6,7 @@
 
         <ul>
             <li>
-                <a href="#">
+                <a href="{{route('admin.portfolios.index')}}">
                     <i class="fa-solid fa-users"></i>
                     Portfolios</a>
             </li>
