@@ -64,9 +64,9 @@ class PortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Portfolio $portfolio)
     {
-        //
+        return view('admin.portfolio.edit', compact('portfolio'));
     }
 
     /**
@@ -76,9 +76,19 @@ class PortfolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PortfolioRequest $request, Portfolio $portfolio)
     {
-        //
+        $form_data = $request->all();
+
+        if($form_data['title'] !== $portfolio->title){
+            $form_data['slug'] = Portfolio::generateSlug($form_data['title']);
+        }else{
+            $form_data['slug'] = $portfolio->slug;
+        }
+
+        $portfolio->update($form_data);
+
+        return redirect()->route('admin.portfolios.show', $portfolio);
     }
 
     /**

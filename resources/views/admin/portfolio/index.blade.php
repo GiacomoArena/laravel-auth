@@ -20,7 +20,8 @@
                         <td>{{$portfolio->name}}</td>
                         <td>{{$portfolio->surname}}</td>
                         <td>
-                            <a href="{{route('admin.portfolios.show',$portfolio)}}" class="btn btn-dark">Visit</a>
+                            <a href="{{route('admin.portfolios.show',$portfolio)}}" class="btn btn-dark"><i class="fa-solid fa-eye"></i></a>
+                            <a href="{{route('admin.portfolios.edit',$portfolio)}}" class="btn btn-dark"><i class="fa-solid fa-pencil"></i></a>
                         </td>
                     </tr>
                 @endforeach
