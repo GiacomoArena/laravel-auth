@@ -33,3 +33,11 @@ aside{
         border-radius: 10px;
     }
 }
+nav{
+    img.logo{
+        margin: 5px;
+        width: 30px;
+        border-radius: 50%;
+        filter: grayscale(100%);
+    }
+}
