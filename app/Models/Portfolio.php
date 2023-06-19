@@ -16,7 +16,9 @@ class Portfolio extends Model
         'name',
         'surname',
         'description',
-        'image'
+        'image',
+        'image_path',
+        'image_real_name'
     ];
     public static function generateSlug($str){
 

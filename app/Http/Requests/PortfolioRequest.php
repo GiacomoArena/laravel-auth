@@ -27,8 +27,7 @@ class PortfolioRequest extends FormRequest
             'title' => 'required|min:2',
             'name' => 'required|min:2|max:15',
             'surname' => 'required|max:15',
-            'description' => 'required',
-            'image' => '|max:255'
+            'description' => 'required'
         ];
     }
 
@@ -41,8 +40,7 @@ class PortfolioRequest extends FormRequest
             'name.min' => 'Il nome deve avere almeno :min caratteri',
             'name.max' => 'Il nome non può avere piu di :max caratteri',
             'surname.max' => 'Il surname non può avere piu di :max caratteri',
-            'description.required' => 'description è un campo obbligatorio',
-            'image.max' => 'image non può avere piu di :max caratteri'
+            'description.required' => 'description è un campo obbligatorio'
         ];
     }
 }

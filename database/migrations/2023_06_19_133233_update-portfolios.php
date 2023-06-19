@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('portfolios', function (Blueprint $table) {
-            //
+            $table->text('image_path')->nullable()->after('description');
+            $table->text('image_real_name')->nullable()->after('description');
         });
     }
 
@@ -26,7 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('portfolios', function (Blueprint $table) {
-            //
+            $table->dropColumn('image_path');
+            $table->dropColumn('image_real_name');
         });
     }
 };
