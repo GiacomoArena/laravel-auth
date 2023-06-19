@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow my-navbar">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="{{ route('admin.home') }}">
+            <img class="logo" src="/img/Boolean.ico" alt="Logo">
             BoolFolio
         </a>
 

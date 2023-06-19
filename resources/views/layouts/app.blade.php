@@ -25,8 +25,8 @@
 
         @include('admin.partials.navbar')
 
-        <main class=" @auth d-flex
-        @endauth">
+        <main class=" d-flex
+        ">
 
             @include('admin.partials.aside')
 
