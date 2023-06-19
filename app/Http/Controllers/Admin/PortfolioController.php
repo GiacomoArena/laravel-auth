@@ -84,13 +84,23 @@ class PortfolioController extends Controller
      */
     public function update(PortfolioRequest $request, Portfolio $portfolio)
     {
-        $form_data = $request->all();
+       // dd($request->file('image'));
+    $form_data = $request->all();
 
         if($form_data['title'] !== $portfolio->title){
             $form_data['slug'] = Portfolio::generateSlug($form_data['title']);
         }else{
             $form_data['slug'] = $portfolio->slug;
         }
+
+        if(array_key_exists('image', $form_data)){
+            if($portfolio->image_path){
+                Storage::disk('public')->delete($portfolio->image_path);
+            }
+            $form_data['image_real_name'] = $request->file('image')->getClientOriginalName();
+            $form_data['image_path'] = Storage::put('uploads/', $form_data['image']);
+
+        };
 
         $portfolio->update($form_data);
 
@@ -105,6 +115,9 @@ class PortfolioController extends Controller
      */
     public function destroy(Portfolio $portfolio)
     {
+        if($portfolio->image_path){
+        Storage::disk('public')->delete($portfolio->image_path);
+    }
         $portfolio->delete();
 
         return redirect()->route('admin.portfolios.index');
