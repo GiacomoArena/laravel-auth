@@ -15,7 +15,7 @@
     @endif
 
 
-    <form action="{{ route('admin.portfolios.store') }}" method="POST">
+    <form action="{{ route('admin.portfolios.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
@@ -55,9 +55,9 @@
         </div>
 
         <div class="mb-3">
-            <label for="image" class="form-label">Url Image</label>
+            <label for="image" class="form-label">Choose Img</label>
             <input id="image" class="form-control @error('image') is-invalid @enderror" name="image"
-                type="text" placeholder="Url Image" value="{{ old('image') }}">
+                type="file" placeholder="Url Image" value="{{ old('image') }}">
             @error('image')
                 <p class="text-danger">{{ $message }}</p>
             @enderror
